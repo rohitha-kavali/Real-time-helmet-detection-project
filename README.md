@@ -261,19 +261,19 @@ The system overlays runtime statistics such as FPS and inference latency directl
 
 ---
 
-**Figure X: Hardware setup showing the Raspberry Pi 5 (inference server) and laptop (client) used for real-time helmet detection.**
+**Figure 4: Hardware setup showing the Raspberry Pi 5 (inference server) and laptop (client) used for real-time helmet detection.**
 
 <img width="1600" height="879" alt="setup" src="https://github.com/user-attachments/assets/6b5ca8ba-eb79-462b-a776-daea0acdee25" />
 
 ---
 
-**Figure X: System pipeline illustrating the distributed client–server architecture, including frame capture, TCP transmission, ONNX-based inference, and result communication.**
+**Figure 5: System pipeline illustrating the distributed client–server architecture, including frame capture, TCP transmission, ONNX-based inference, and result communication.**
 
 <img width="1155" height="783" alt="pipeline" src="https://github.com/user-attachments/assets/c98be7a9-926b-489a-83b1-b07a1a5361c1" />
 
 ---
 
-**Figure X: Real-time detection output showing bounding boxes, class labels, confidence scores, and performance metrics (FPS and inference latency).**
+**Figure 6: Real-time detection output showing bounding boxes, class labels, confidence scores, and performance metrics (FPS and inference latency).**
 
 <img width="1472" height="888" alt="output" src="https://github.com/user-attachments/assets/e82d7259-b0d4-4014-b04e-dda065368ea4" />
 
