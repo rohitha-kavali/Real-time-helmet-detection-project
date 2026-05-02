@@ -1,6 +1,10 @@
 # Edge AI Course – Project Report
 
 # Real Time Helmet Detection Project
+This project was completed as part of the *Edge AI Course*, which focuses on real-time AI deployment on edge devices.
+
+🔗 Course Website: https://www.samy101.com/edge-ai-26/
+
 ---
 
 ## 1. Problem Statement, Motivation & Objectives
@@ -356,4 +360,31 @@ The system can be further improved in the following ways:
 - Implemented a length-prefixed TCP protocol to guarantee complete message delivery  
 - Applied JPEG compression (quality = 80) to reduce network bandwidth usage  
 - Built robust socket handling with exact byte reads to prevent partial frame issues  
-- Added error handling for decode failures and connection resets to maintain stability  
+- Added error handling for decode failures and connection resets to maintain stability
+
+## 12. Edge AI Optimization and Deployment Impact
+
+This project incorporates key Edge AI principles by optimizing the trained model for deployment on a resource-constrained device (Raspberry Pi 5). Instead of running inference using PyTorch, the model was converted to ONNX format and executed using ONNX Runtime, enabling efficient CPU-based inference.
+
+#### Optimization Applied:
+- Conversion from PyTorch (`.pt`) to ONNX (`.onnx`) for lightweight inference
+- Use of ONNX Runtime with graph optimizations enabled
+- Removal of PyTorch dependency on the edge device
+- JPEG compression (quality = 80) to reduce network transmission overhead
+
+#### Performance Comparison:
+
+| Metric | PyTorch (Expected) | ONNX Runtime (Edge) |
+|---|---|---|
+| Runtime | PyTorch | ONNX Runtime |
+| Deployment feasibility on Pi | Limited | Fully supported |
+| Memory usage | High | Reduced |
+| Inference latency | Not feasible / high | ~969 ms per frame |
+| Throughput | Not practical | ~1.2 FPS |
+
+#### Observations:
+- ONNX Runtime enables practical deployment on Raspberry Pi by reducing memory footprint and improving execution efficiency.
+- The system achieves near real-time performance (~1 FPS) without requiring GPU acceleration.
+- Compression and efficient data transfer further reduce end-to-end latency in the distributed pipeline.
+
+This demonstrates how model optimization and runtime selection are critical for enabling real-time Edge AI applications on low-power devices.
