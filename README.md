@@ -366,25 +366,34 @@ The system can be further improved in the following ways:
 
 This project incorporates key Edge AI principles by optimizing the trained model for deployment on a resource-constrained device (Raspberry Pi 5). Instead of running inference using PyTorch, the model was converted to ONNX format and executed using ONNX Runtime, enabling efficient CPU-based inference.
 
-#### Optimization Applied:
-- Conversion from PyTorch (`.pt`) to ONNX (`.onnx`) for lightweight inference
-- Use of ONNX Runtime with graph optimizations enabled
-- Removal of PyTorch dependency on the edge device
-- JPEG compression (quality = 80) to reduce network transmission overhead
+### Optimization Applied:
+- Conversion from PyTorch (.pt) to ONNX (.onnx) for lightweight inference  
+- Use of ONNX Runtime with graph optimizations enabled  
+- Removal of PyTorch dependency on the edge device  
+- JPEG compression (quality = 80) to reduce network transmission overhead  
 
-#### Performance Comparison:
+---
 
-| Metric | PyTorch (Expected) | ONNX Runtime (Edge) |
+### Before vs After Optimization Comparison
+
+| Metric | Before Optimization (PyTorch - Training) | After Optimization (ONNX - Edge) |
 |---|---|---|
-| Runtime | PyTorch | ONNX Runtime |
-| Deployment feasibility on Pi | Limited | Fully supported |
-| Memory usage | High | Reduced |
-| Inference latency | Not feasible / high | ~969 ms per frame |
-| Throughput | Not practical | ~1.2 FPS |
+| Runtime | PyTorch (GPU/desktop environment) | ONNX Runtime (CPU on Raspberry Pi 5) |
+| Deployment feasibility | Not suitable for edge device | Fully deployable on Raspberry Pi |
+| Precision | 0.9527 | ~same (no re-evaluation performed) |
+| Recall | 0.8891 | ~same (expected unchanged) |
+| mAP@0.5 | 0.9430 | ~same (expected unchanged) |
+| Memory usage | High (PyTorch dependency) | Reduced (lightweight runtime) |
+| Inference latency | Not measured on Pi | ~969 ms per frame |
+| Throughput | Not practical on Pi | ~1.2 FPS |
 
-#### Observations:
-- ONNX Runtime enables practical deployment on Raspberry Pi by reducing memory footprint and improving execution efficiency.
-- The system achieves near real-time performance (~1 FPS) without requiring GPU acceleration.
-- Compression and efficient data transfer further reduce end-to-end latency in the distributed pipeline.
+---
+
+### Observations:
+- ONNX conversion preserves model weights and computation graph, so no significant accuracy degradation is expected.
+- The primary improvement is in deployment feasibility and runtime efficiency rather than model accuracy.
+- ONNX Runtime enables practical inference on Raspberry Pi by reducing memory usage and removing heavy dependencies.
+- The system achieves stable near real-time performance (~1 FPS) on CPU-only hardware.
+- JPEG compression further reduces network overhead, improving end-to-end latency.
 
 This demonstrates how model optimization and runtime selection are critical for enabling real-time Edge AI applications on low-power devices.
