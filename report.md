@@ -4,6 +4,7 @@
 This project was completed as part of the *Edge AI Course*, which focuses on real-time AI deployment on edge devices.
 
 🔗 Course Website: https://www.samy101.com/edge-ai-26/
+
 google drive link for video presentation : https://drive.google.com/file/d/1yNl1FJYWZVjtlT5UGi9V5FdqgKGQ1F8Q/view?usp=sharing
 
 ---
