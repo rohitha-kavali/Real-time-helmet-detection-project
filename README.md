@@ -179,6 +179,35 @@ Overall, YOLOv5s provides a strong balance between speed and accuracy, making it
 <img width="2250" height="1500" alt="fig_pr_curve" src="https://github.com/user-attachments/assets/93204153-249f-40a5-9524-216b514c6cb2" />
 
 ---
+**Figure 4: Training loss curves (box, objectness, and classification) over epochs. All losses decrease steadily, indicating stable training and good model convergence without signs of overfitting.**
+  
+<img width="865" height="535" alt="image" src="https://github.com/user-attachments/assets/bc28c248-39b1-4917-920b-df491d493f8d" />
+---
+**Figure 5: Validation loss curves (box, objectness, and classification) over epochs. The consistent decrease with minor fluctuations indicates stable generalization and no significant overfitting.**
+
+<img width="865" height="535" alt="image" src="https://github.com/user-attachments/assets/dac2072d-8bab-4e9c-a31c-d7f5f43b5b29" />
+---
+**Figure 6: Precision and recall trends over epochs. Both metrics improve steadily, indicating better detection performance and balanced learning as training progresses.**
+<img width="865" height="535" alt="image" src="https://github.com/user-attachments/assets/73195d8f-dd4a-4afa-bc8c-5157e3d7e075" />
+
+---
+**Figure 7: Mean Average Precision (mAP@0.5 and mAP@0.5:0.95) over epochs. The consistent increase reflects improved detection accuracy and localization performance across training.**
+<img width="865" height="535" alt="image" src="https://github.com/user-attachments/assets/96fdf43e-dc69-4b40-916b-3cc094df39f5" />
+
+---
+**Figure 8: F1–confidence curves for all classes. The model achieves an optimal F1 score of approximately 0.92 at a confidence threshold around 0.65, indicating a good balance between precision and recall.**
+<img width="2048" height="1365" alt="image" src="https://github.com/user-attachments/assets/b52b8733-cd7d-4ff5-a7da-902c8ec47013" />
+
+---
+**Figure 9: Precision–confidence curves for all classes. Precision increases with higher confidence thresholds, indicating reduced false positives at stricter detection confidence levels.**
+<img width="2048" height="1365" alt="image" src="https://github.com/user-attachments/assets/e39ec3f2-2763-43c5-980a-974e9d26c376" />
+
+---
+**Figure 10: Recall–confidence curves for all classes. Recall decreases as confidence increases, highlighting the trade-off between capturing all detections and maintaining prediction certainty.**
+<img width="2048" height="1365" alt="image" src="https://github.com/user-attachments/assets/06f2ec16-8b56-4237-bc86-5337d4c46604" />
+
+---
+
 ## 6. Model Conversion & Efficiency Metrics
 
 **Conversion:** PyTorch (`.pt`) → ONNX (`.onnx`) via `torch.onnx.export`
